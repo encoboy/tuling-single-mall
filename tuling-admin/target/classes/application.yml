@@ -21,6 +21,9 @@ redis:
   key:
     admin: 'ums:admin'
     resourceList: 'ums:resourceList'
+    user:
+    prefix:
+      orderId:
   expire:
     common: 86400 # 24小时
 
