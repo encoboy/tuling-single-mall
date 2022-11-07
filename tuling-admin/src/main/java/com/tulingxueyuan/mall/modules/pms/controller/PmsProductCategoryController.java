@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * <p>
- * 产品分类 前端控制器
+ * 产品分类 前端控制器  商品类型
  * </p>
  *
  * @author XuShu

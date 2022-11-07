@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * <p>
- * 产品属性分类表 前端控制器
+ * 产品属性分类表 前端控制器  商品分类
  * </p>
  *
  * @author XuShu
@@ -104,7 +104,7 @@ public class PmsProductAttributeCategoryController {
      * method:'get'
      */
     @RequestMapping(value = "/list/withAttr", method = RequestMethod.GET)
-    public CommonResult getListWithAttr() {
+    public CommonResult<List<ProductAttributeCateDTO>> getListWithAttr() {
         List<ProductAttributeCateDTO> list = attributeCategoryService.getListWithAttr();
         return CommonResult.success(list);
     }

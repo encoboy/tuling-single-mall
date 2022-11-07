@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * <p>
- * 商品属性参数表 前端控制器
+ * 商品属性参数表 前端控制器 - 属性列表，参数列表
  * </p>
  *
  * @author XuShu
@@ -32,6 +32,7 @@ public class PmsProductAttributeController {
      * url:'/productAttribute/list/'+cid,
      * method:'get',
      * params:params
+     * type =  0 是属性列表；type = 1 是参数列表
      */
     @RequestMapping(value = "/list/{cid}", method = RequestMethod.GET)
     public CommonResult<CommonPage> getList(@PathVariable Long cid,
@@ -110,13 +111,13 @@ public class PmsProductAttributeController {
     }
 
     /**
-     *  根据商品分类id获取关联的筛选属性
-     *   url:'/productAttribute/attrInfo/'+productCategoryId,
-     *     method:'get'
+     * 根据商品分类id获取关联的筛选属性
+     * url:'/productAttribute/attrInfo/'+productCategoryId,
+     * method:'get'
      */
-    @RequestMapping(value="/attrInfo/{cId}")
-    public CommonResult getRelationAttrInfoByCid(@PathVariable Long cId){
-        List<RelationAttrInfoDTO> list=  productAttributeService.getRelationAttrInfoByCid(cId);
+    @RequestMapping(value = "/attrInfo/{cId}")
+    public CommonResult getRelationAttrInfoByCid(@PathVariable Long cId) {
+        List<RelationAttrInfoDTO> list = productAttributeService.getRelationAttrInfoByCid(cId);
         return CommonResult.success(list);
     }
 

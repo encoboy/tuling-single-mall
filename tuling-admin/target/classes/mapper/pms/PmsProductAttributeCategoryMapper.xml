@@ -26,5 +26,6 @@
                pa.`name` attr_name
         FROM pms_product_attribute_category pac
                  LEFT JOIN pms_product_attribute pa ON pac.id = pa.product_attribute_category_id and pa.type = 1
+        ORDER BY pac.id ASC
     </select>
 </mapper>
