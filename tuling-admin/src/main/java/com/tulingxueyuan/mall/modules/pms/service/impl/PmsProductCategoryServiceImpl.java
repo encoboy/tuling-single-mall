@@ -127,6 +127,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
 
     @Override
     public boolean update(PmsProductCategoryDTO productCategoryDTO) {
+        // 先删除表里原有的，再添加
         // 保存商品分类
         PmsProductCategory productCategory = new PmsProductCategory();
         // 通过BeanUtils 将productCategoryDTO的数据拷贝到productCategory

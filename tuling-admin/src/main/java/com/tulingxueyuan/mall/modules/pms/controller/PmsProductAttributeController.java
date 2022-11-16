@@ -35,10 +35,10 @@ public class PmsProductAttributeController {
      * type =  0 是属性列表；type = 1 是参数列表
      */
     @RequestMapping(value = "/list/{cid}", method = RequestMethod.GET)
-    public CommonResult<CommonPage> getList(@PathVariable Long cid,
-                                            @RequestParam(value = "type") Integer type,
-                                            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                            @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+    public CommonResult<CommonPage<PmsProductAttribute>> getList(@PathVariable Long cid,
+                                                                 @RequestParam(value = "type") Integer type,
+                                                                 @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                                                 @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
 
         Page page = productAttributeService.list(cid, type, pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(page));
@@ -89,7 +89,6 @@ public class PmsProductAttributeController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public CommonResult<PmsProductAttribute> getById(@PathVariable Long id) {
-
         PmsProductAttribute productCategory = productAttributeService.getById(id);
         return CommonResult.success(productCategory);
     }
