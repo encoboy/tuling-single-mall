@@ -2,6 +2,7 @@ package com.tulingxueyuan.mall.modules.sms.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.tulingxueyuan.mall.dto.HomeGoodsSaleDTO;
+import com.tulingxueyuan.mall.dto.ProductDTO;
 import com.tulingxueyuan.mall.modules.sms.mapper.SmsHomeCategoryMapper;
 import com.tulingxueyuan.mall.modules.sms.model.SmsHomeCategory;
 import com.tulingxueyuan.mall.modules.sms.service.SmsHomeCategoryService;
@@ -12,7 +13,7 @@ import java.util.List;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author XuShu
@@ -27,5 +28,10 @@ public class SmsHomeCategoryServiceImpl extends ServiceImpl<SmsHomeCategoryMappe
     @Override
     public List<HomeGoodsSaleDTO> getGoodsSale() {
         return homeCategoryMapper.getHomeCategoryWithProduct();
+    }
+
+    @Override
+    public List<ProductDTO> getProduct() {
+        return null;
     }
 }

@@ -15,13 +15,11 @@ import com.tulingxueyuan.mall.modules.ums.service.UmsAdminService;
 import com.tulingxueyuan.mall.modules.ums.service.UmsRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.service.AuthorizationScope;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -67,20 +65,20 @@ public class UmsAdminController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
-        System.out.println("umsAdminLoginParam"+umsAdminLoginParam);
-         UmsAdmin login = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
+        UmsAdmin login = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
         if (login == null) {
             return CommonResult.validateFailed("用户名或密码错误");
         }
         String token = jwtTokenUtil.generateUserNameStr(login.getUsername());
 
         Map<String, String> tokenMap = new HashMap<>();
-        tokenMap.put("token",token);
-        tokenMap.put("tokenHead",tokenHead);
-        tokenMap.put("tokenHeader",tokenHeader);
+        tokenMap.put("token", token);
+        tokenMap.put("tokenHead", tokenHead);
+        tokenMap.put("tokenHeader", tokenHeader);
         // jwt
         return CommonResult.success(tokenMap);
     }
+
     @ApiOperation(value = "刷新token")
     @RequestMapping(value = "/refreshToken", method = RequestMethod.GET)
     @ResponseBody
@@ -100,7 +98,7 @@ public class UmsAdminController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult getAdminInfo(Principal principal) {
-        if(principal==null){
+        if (principal == null) {
             return CommonResult.unauthorized(null);
         }
         String username = principal.getName();
@@ -110,9 +108,9 @@ public class UmsAdminController {
         data.put("menus", roleService.getMenuList(umsAdmin.getId()));
         data.put("icon", umsAdmin.getIcon());
         List<UmsRole> roleList = adminService.getRoleList(umsAdmin.getId());
-        if(CollUtil.isNotEmpty(roleList)){
+        if (CollUtil.isNotEmpty(roleList)) {
             List<String> roles = roleList.stream().map(UmsRole::getName).collect(Collectors.toList());
-            data.put("roles",roles);
+            data.put("roles", roles);
         }
         return CommonResult.success(data);
     }
@@ -121,7 +119,7 @@ public class UmsAdminController {
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult logout() {
-        session.setAttribute(ComConstants.FLAG_CURRENT_USER,null);
+        session.setAttribute(ComConstants.FLAG_CURRENT_USER, null);
         return CommonResult.success(null);
     }
 
@@ -189,7 +187,7 @@ public class UmsAdminController {
     public CommonResult updateStatus(@PathVariable Long id, @RequestParam(value = "status") Integer status) {
         UmsAdmin umsAdmin = new UmsAdmin();
         umsAdmin.setStatus(status);
-        boolean success = adminService.update(id,umsAdmin);
+        boolean success = adminService.update(id, umsAdmin);
         if (success) {
             return CommonResult.success(null);
         }

@@ -24,16 +24,18 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("oms_cart_item")
-@ApiModel(value="OmsCartItem对象", description="购物车表")
+@ApiModel(value = "OmsCartItem对象", description = "购物车表")
 public class OmsCartItem implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @ApiModelProperty(value = "商品id")
     private Long productId;
 
+    @ApiModelProperty(value = "商品库存id")
     private Long productSkuId;
 
     private Long memberId;
@@ -75,12 +77,13 @@ public class OmsCartItem implements Serializable {
     private Date modifyDate;
 
     @ApiModelProperty(value = "删除状态：0->未删除；1->已删除")
-    @TableLogic(value="0",delval = "1")
+    @TableLogic(value = "0", delval = "1")
     private Integer deleteStatus;
 
     @ApiModelProperty(value = "商品分类")
     private Long productCategoryId;
 
+    @ApiModelProperty(value = "商品品牌")
     private String productBrand;
 
     private String productSn;

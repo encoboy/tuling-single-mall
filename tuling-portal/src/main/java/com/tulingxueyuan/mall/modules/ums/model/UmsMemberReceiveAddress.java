@@ -21,10 +21,10 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("ums_member_receive_address")
-@ApiModel(value="UmsMemberReceiveAddress对象", description="会员收货地址表")
+@ApiModel(value = "UmsMemberReceiveAddress对象", description = "会员收货地址表")
 public class UmsMemberReceiveAddress implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -34,6 +34,7 @@ public class UmsMemberReceiveAddress implements Serializable {
     @ApiModelProperty(value = "收货人名称")
     private String name;
 
+    @ApiModelProperty(value = "电话号码")
     private String phoneNumber;
 
     @ApiModelProperty(value = "是否为默认")

@@ -1,9 +1,13 @@
 package com.tulingxueyuan.mall.modules.pms.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.tulingxueyuan.mall.common.api.CommonResult;
+import com.tulingxueyuan.mall.modules.pms.model.PmsSkuStock;
+import com.tulingxueyuan.mall.modules.pms.service.PmsSkuStockService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * <p>
@@ -14,8 +18,25 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-02-26
  */
 @RestController
-@RequestMapping("/pms/pmsSkuStock")
+@RequestMapping("/sku")
 public class PmsSkuStockController {
+
+    @Autowired
+    PmsSkuStockService pmsSkuStockService;
+
+    /**
+     * 获取库存列表
+     * url:'/sku/'+pid,
+     * method:'get',
+     * params:params
+     */
+    @RequestMapping(value = "/{pid}", method = RequestMethod.GET)
+    public CommonResult<List<PmsSkuStock>> getList(@PathVariable Long pid,
+                                                   @RequestParam(value = "", required = false) String keyword
+    ) {
+        List<PmsSkuStock> list = pmsSkuStockService.list(pid, keyword);
+        return CommonResult.success(list);
+    }
 
 }
 

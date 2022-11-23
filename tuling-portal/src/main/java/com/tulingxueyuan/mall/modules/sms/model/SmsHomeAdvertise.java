@@ -1,14 +1,15 @@
 package com.tulingxueyuan.mall.modules.sms.model;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -21,23 +22,28 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sms_home_advertise")
-@ApiModel(value="SmsHomeAdvertise对象", description="首页轮播广告表")
+@ApiModel(value = "SmsHomeAdvertise对象", description = "首页轮播广告表")
 public class SmsHomeAdvertise implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
+    @ApiModelProperty(value = "id")
     private Long id;
 
+    @ApiModelProperty(value = "name")
     private String name;
 
     @ApiModelProperty(value = "轮播位置：0->PC首页轮播；1->app首页轮播")
     private Integer type;
 
+    @ApiModelProperty(value = "图片链接")
     private String pic;
 
+    @ApiModelProperty(value = "开始时间")
     private Date startTime;
 
+    @ApiModelProperty(value = "结束时间")
     private Date endTime;
 
     @ApiModelProperty(value = "上下线状态：0->下线；1->上线")

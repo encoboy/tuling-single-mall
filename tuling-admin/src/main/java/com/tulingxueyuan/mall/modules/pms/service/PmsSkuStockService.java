@@ -1,7 +1,9 @@
 package com.tulingxueyuan.mall.modules.pms.service;
 
-import com.tulingxueyuan.mall.modules.pms.model.PmsSkuStock;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.tulingxueyuan.mall.modules.pms.model.PmsSkuStock;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PmsSkuStockService extends IService<PmsSkuStock> {
 
+    List<PmsSkuStock> list(Long pid, String keyword);
 }

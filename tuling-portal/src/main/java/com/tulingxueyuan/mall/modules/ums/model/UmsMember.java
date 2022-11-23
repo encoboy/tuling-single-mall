@@ -8,7 +8,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
@@ -24,22 +23,23 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("ums_member")
-@ApiModel(value="UmsMember对象", description="会员表")
+@ApiModel(value = "UmsMember对象", description = "会员表")
 public class UmsMember implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @ApiModelProperty(value = "会员等级id")
     private Long memberLevelId;
 
     @ApiModelProperty(value = "用户名")
-    @NotBlank(message="用户名不能为空")
+    @NotBlank(message = "用户名不能为空")
     private String username;
 
     @ApiModelProperty(value = "密码")
-    @NotBlank(message="密码不能为空")
+    @NotBlank(message = "密码不能为空")
     private String password;
 
     @ApiModelProperty(value = "昵称")

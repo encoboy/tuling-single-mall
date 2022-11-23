@@ -16,8 +16,8 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="订单详情数据传输对象", description="订单详情数据传输对象")
-public class OrderDetailDTO  {
+@ApiModel(value = "订单详情数据传输对象", description = "订单详情数据传输对象")
+public class OrderDetailDTO {
     @ApiModelProperty(value = "订单id")
     private Long id;
 
@@ -44,6 +44,7 @@ public class OrderDetailDTO  {
 
     @ApiModelProperty(value = "提交时间")
     private Date createTime;
+    
     @ApiModelProperty(value = "订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单")
     private Integer status;
 

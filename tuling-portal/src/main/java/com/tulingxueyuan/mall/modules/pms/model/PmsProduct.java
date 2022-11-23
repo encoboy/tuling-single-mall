@@ -1,15 +1,16 @@
 package com.tulingxueyuan.mall.modules.pms.model;
 
-import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * <p>
@@ -22,24 +23,28 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("pms_product")
-@ApiModel(value="PmsProduct对象", description="商品信息")
+@ApiModel(value = "PmsProduct对象", description = "商品信息")
 public class PmsProduct implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @ApiModelProperty(value = "品牌id")
     private Long brandId;
 
+    @ApiModelProperty(value = "产品分类id")
     private Long productCategoryId;
 
     private Long feightTemplateId;
 
     private Long productAttributeCategoryId;
 
+    @ApiModelProperty(value = "商品名称")
     private String name;
 
+    @ApiModelProperty(value = "图片链接")
     private String pic;
 
     @ApiModelProperty(value = "货号")
@@ -66,6 +71,7 @@ public class PmsProduct implements Serializable {
     @ApiModelProperty(value = "销量")
     private Integer sale;
 
+    @ApiModelProperty(value = "价格")
     private BigDecimal price;
 
     @ApiModelProperty(value = "促销价格")
@@ -107,15 +113,19 @@ public class PmsProduct implements Serializable {
     @ApiModelProperty(value = "以逗号分割的产品服务：1->无忧退货；2->快速退款；3->免费包邮")
     private String serviceIds;
 
+    @ApiModelProperty(value = "关键字")
     private String keywords;
 
+    @ApiModelProperty(value = "备注")
     private String note;
 
     @ApiModelProperty(value = "画册图片，连产品图片限制为5张，以逗号分割")
     private String albumPics;
 
+    @ApiModelProperty(value = "详情标题")
     private String detailTitle;
 
+    @ApiModelProperty(value = "商品详情描述")
     private String detailDesc;
 
     @ApiModelProperty(value = "产品详情网页内容")

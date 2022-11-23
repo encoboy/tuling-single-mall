@@ -13,10 +13,13 @@ import java.math.BigDecimal;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="商品的数据传输对象", description="商品的数据传输对象")
+@ApiModel(value = "商品的数据传输对象", description = "商品的数据传输对象")
 public class ProductDTO {
+    @ApiModelProperty(value = "商品id")
     private Long id;
+    @ApiModelProperty(value = "商品名字")
     private String name;
+    @ApiModelProperty(value = "图片链接")
     private String pic;
     @ApiModelProperty(value = "促销价格")
     private BigDecimal promotionPrice;
