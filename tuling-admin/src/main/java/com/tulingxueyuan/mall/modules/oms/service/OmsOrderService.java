@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.tulingxueyuan.mall.dto.OrderConditonDTO;
 import com.tulingxueyuan.mall.modules.oms.model.OmsOrder;
 
+import java.util.List;
+
 /**
  * <p>
  * 订单表 服务类
@@ -16,4 +18,6 @@ import com.tulingxueyuan.mall.modules.oms.model.OmsOrder;
 public interface OmsOrderService extends IService<OmsOrder> {
 
     Page list(OrderConditonDTO condition);
+
+    boolean delete(List<Long> ids);
 }

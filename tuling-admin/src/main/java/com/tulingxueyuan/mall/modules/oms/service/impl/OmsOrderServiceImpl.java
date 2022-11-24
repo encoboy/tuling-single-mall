@@ -12,6 +12,7 @@ import com.tulingxueyuan.mall.modules.oms.service.OmsOrderService;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -56,5 +57,10 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
             lambdaWrapper.eq(OmsOrder::getSourceType, condition.getSourceType());
         }
         return this.page(page, lambdaWrapper);
+    }
+
+    @Override
+    public boolean delete(List<Long> ids) {
+        return this.baseMapper.deleteBatchIds(ids) == ids.size();
     }
 }

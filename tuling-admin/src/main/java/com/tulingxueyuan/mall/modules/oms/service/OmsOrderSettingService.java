@@ -1,7 +1,7 @@
 package com.tulingxueyuan.mall.modules.oms.service;
 
-import com.tulingxueyuan.mall.modules.oms.model.OmsOrderSetting;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.tulingxueyuan.mall.modules.oms.model.OmsOrderSetting;
 
 /**
  * <p>
@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface OmsOrderSettingService extends IService<OmsOrderSetting> {
 
+    boolean update(Long id, OmsOrderSetting orderSetting);
 }

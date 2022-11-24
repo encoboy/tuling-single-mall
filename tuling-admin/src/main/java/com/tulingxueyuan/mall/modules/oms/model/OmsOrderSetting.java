@@ -1,13 +1,14 @@
 package com.tulingxueyuan.mall.modules.oms.model;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -20,10 +21,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("oms_order_setting")
-@ApiModel(value="OmsOrderSetting对象", description="订单设置表")
+@ApiModel(value = "OmsOrderSetting对象", description = "订单设置表")
 public class OmsOrderSetting implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -42,6 +43,9 @@ public class OmsOrderSetting implements Serializable {
 
     @ApiModelProperty(value = "订单完成后自动好评时间（天）")
     private Integer commentOvertime;
+    
+    @ApiModelProperty(value = "设置id")
+    private Long settingId;
 
 
 }

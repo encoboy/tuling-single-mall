@@ -4,12 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.tulingxueyuan.mall.modules.oms.model.OmsOrderSetting">
-        <id column="id" property="id" />
-        <result column="flash_order_overtime" property="flashOrderOvertime" />
-        <result column="normal_order_overtime" property="normalOrderOvertime" />
-        <result column="confirm_overtime" property="confirmOvertime" />
-        <result column="finish_overtime" property="finishOvertime" />
-        <result column="comment_overtime" property="commentOvertime" />
+        <id column="id" property="id"/>
+        <result column="flash_order_overtime" property="flashOrderOvertime"/>
+        <result column="normal_order_overtime" property="normalOrderOvertime"/>
+        <result column="confirm_overtime" property="confirmOvertime"/>
+        <result column="finish_overtime" property="finishOvertime"/>
+        <result column="comment_overtime" property="commentOvertime"/>
+        <result column="setting_id" property="settingId"/>
     </resultMap>
 
 </mapper>
